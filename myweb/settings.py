@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django_secret_key') #수정
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False #수정
 
-ALLOWED_HOSTS = ['.booklist-jbnu.koyeb.app', '127.0.0.1']#수정  
+ALLOWED_HOSTS = ['.booklist-jbnu.koyeb.app', '127.0.0.1'] #수정  
 #DJANGO_ALLOWED_HOSTS = 'booklist-jbnu.koyeb.app'
 
 
@@ -87,6 +87,17 @@ WSGI_APPLICATION = 'myweb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'sqlite3.db',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
 '''
 DATABASES = {
     'default': {
@@ -95,13 +106,13 @@ DATABASES = {
 
     }
 }
+'''
+
 #추가
+'''
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 '''
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=500)
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -140,7 +151,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles' #추가
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
