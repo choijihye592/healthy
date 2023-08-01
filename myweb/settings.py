@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django_secret_key') #수정
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #수정
 
-ALLOWED_HOSTS = ['.booklist-jbnu.koyeb.app', '127.0.0.1']
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(",")
 #ALLOWED_HOSTS = ['booklist-jbnu.koyeb.app', '127.0.0.1'] #수정  
 #DJANGO_ALLOWED_HOSTS = 'booklist-jbnu.koyeb.app'
 
